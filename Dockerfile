@@ -1,4 +1,4 @@
-FROM php:7-2-fpm
+FROM php:7.2-fpm
 RUN apk add --no-cache \
         zlib-dev \
         libxml2-dev \
