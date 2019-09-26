@@ -1,0 +1,17 @@
+version: '3'
+services:
+  application:
+    build: Application/docker/php
+    volumes:
+      - ./Application:/var/www/html/
+    ports:
+      - 9000:9000
+    command: ["composer", "install", "--no-dev"]
+    environment:
+      - APP_ENV=prod
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
