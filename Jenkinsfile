@@ -19,7 +19,7 @@ pipeline {
   }
   post {
     failure {
-       sh "docker rm application"
+       sh "docker rm application_$GIT_COMMIT"
     }
     always {
       cleanWs()
