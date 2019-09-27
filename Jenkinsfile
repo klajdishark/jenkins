@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh  "docker build -f Dockerfile-build-prod -t application ."
+
+        sh  "docker build -f Dockerfile-build-prod -t application:v1 ."
       }
     }
   }
