@@ -3,8 +3,12 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
-        sh 'echo $GIT_COMMIT'
         sh "docker build -f Dockerfile-build-prod -t application:$GIT_COMMIT ."
+      }
+    }
+    stage('Build Container') {
+      steps {
+        sh "docker run --expose 9000 application:$GIT_COMMIT bash"
       }
     }
   }
