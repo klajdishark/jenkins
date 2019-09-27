@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Build Image') {
       steps {
-        sh 'echo $GIT_BRANCH'
-        sh "docker build -f Dockerfile-build-prod -t application:$COMMIT_ID ."
+        sh 'echo $GIT_COMMIT'
+        sh "docker build -f Dockerfile-build-prod -t application:$GIT_COMMIT ."
       }
     }
   }
