@@ -8,12 +8,12 @@ pipeline {
     }
     stage('Build Container') {
       steps {
-        sh "docker run --name application  -p 9000:9000 application:$GIT_COMMIT --tty=true"
+        sh "docker run --name application_$GIT_COMMIT -p 9000:9000 application:$GIT_COMMIT --tty=true"
       }
     }
     stage('Test') {
       steps {
-        sh "docker exec -it -u root application ./bin/phpunit"
+        sh "docker exec -it -u root application_$GIT_COMMIT ./bin/phpunit"
       }
     }
   }
