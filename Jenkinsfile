@@ -6,7 +6,7 @@ pipeline {
                 sh "echo '--------- START BUILDING ---------'"
                 sh "ls -lrt"
                 sh "docker-compose --version"
-                sh 'docker-compose -f build.yml up'
+                sh 'pwd'
                 sh "echo '--------- END BUILDING ---------'"
             }
         }
