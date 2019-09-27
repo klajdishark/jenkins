@@ -39,3 +39,4 @@ ENV PATH=$PATH:/root/composer/vendor/bin COMPOSER_ALLOW_SUPERUSER=1
 COPY ./Application /var/www/html
 WORKDIR /var/www/html
 CMD ["composer", "install", "--no-dev"]
+EXPOSE 9000
