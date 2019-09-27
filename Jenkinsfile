@@ -1,9 +1,9 @@
 pipeline {
     agent {
-        docker
-            {
-                args '-u root:sudo -v ${env.WORKSPACE}'
-            }
+        docker{
+            image 'ubuntu'
+            args '-u root:root'
+        }
     }
     stages{
         stage("Build"){

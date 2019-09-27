@@ -1,6 +1,4 @@
 FROM php:7.2-fpm
-FROM php:7.2-fpm
-
 # Install PHP extensions and PECL modules.
 RUN buildDeps=" \
         default-libmysqlclient-dev \
