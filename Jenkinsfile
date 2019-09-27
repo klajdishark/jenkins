@@ -4,7 +4,7 @@ pipeline {
         stage("Build"){
             steps {
                 sh "echo '--------- START BUILDING ---------'"
-                sh 'docker-compose -f build.yml up
+                sh 'docker-compose -f build.yml up'
                 sh "echo '--------- END BUILDING ---------'"
             }
         }
