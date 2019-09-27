@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Container') {
       steps {
-        sh "docker run --name application:$GIT_COMMIT --expose 9000 application:$GIT_COMMIT"
+        sh "docker run --name application --expose 9000 application:$GIT_COMMIT"
       }
     }
   }
