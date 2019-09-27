@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Container') {
       steps {
-        sh "docker run --name application_$GIT_COMMIT -p 9000:9000 application:$GIT_COMMIT"
+        sh "docker run --name application_$GIT_COMMIT -p 9000 application:$GIT_COMMIT"
       }
     }
     stage('Test') {
@@ -18,7 +18,9 @@ pipeline {
     }
   }
   post {
-
+    failure {
+       sh "docker rm application_$GIT_COMMIT"
+    }
     always {
       cleanWs()
     }
