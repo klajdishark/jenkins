@@ -17,4 +17,12 @@ pipeline {
       }
     }
   }
+  post {
+    failure {
+       sh "docker rm application"
+    }
+    always {
+      cleanWs()
+    }
+  }
 }
