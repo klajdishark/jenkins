@@ -2,14 +2,8 @@ pipeline {
   agent none
   stages {
     stage('Build') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile-build-prod'
-          label 'application'
-        }
-      }
       steps {
-        sh  "echo 'ksh'"
+        sh  "docker build -f Dockerfile-build-prod -t application"
       }
     }
   }
