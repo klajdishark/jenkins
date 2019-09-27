@@ -1,10 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Build Image') {
       steps {
-
-        sh  "docker build -f Dockerfile-build-prod -t application:v1 ."
+        sh "COMMIT_ID="$(git rev-parse --short HEAD)""
+        sh  "docker build -f Dockerfile-build-prod -t application:${OUTPUT} ."
       }
     }
   }
