@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker
+            {
+                args '-u root:sudo -v ${env.WORKSPACE}'
+            }
+    }
     stages{
         stage("Build"){
             steps {
