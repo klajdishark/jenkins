@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh "docker exec -it -u root application_$GIT_COMMIT ./bin/phpunit"
+        sh "docker exec -i -u root application_$GIT_COMMIT ./bin/phpunit"
       }
     }
   }
