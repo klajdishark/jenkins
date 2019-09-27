@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Container') {
       steps {
-        sh "docker run --name application  -p 9000:9000 application:$GIT_COMMIT"
+        sh "docker run --name application  -p 9000:9000 application:$GIT_COMMIT --tty=true"
       }
     }
     stage('Test') {
