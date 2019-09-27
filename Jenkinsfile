@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''sh "echo \'ksh\'"
-'''
+        sh  "echo 'ksh'"
       }
     }
   }
