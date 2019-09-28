@@ -8,12 +8,12 @@ pipeline {
     }
     stage('Build Container') {
       steps {
-        sh "docker run --name application --publish --expose 9000 application:$GIT_COMMIT"
+        sh "docker run -d -it --name application_$GIT_COMMIT  --network=bridge -P application:$GIT_COMMIT"
       }
     }
     stage('Test') {
       steps {
-        sh "docker exec -i -u root application ./bin/phpunit"
+        sh "docker exec -i -u root application_$GIT_COMMIT ./bin/phpunit"
       }
     }
   }
