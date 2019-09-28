@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Container') {
       steps {
-        sh "docker run -d -it --name application_$GIT_COMMIT  --network=bridge -P application:$GIT_COMMIT"
+        sh "docker run -d  --name application_$GIT_COMMIT  --network=bridge -P application:$GIT_COMMIT"
       }
     }
     stage('Test') {
